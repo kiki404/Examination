@@ -146,10 +146,15 @@
                     
                     //填充板块2的数据（今天＋明天）
                     var str = response1.data[0].wea_day;
+                        
+                    str = str.indexOf("到")==-1?str:str.split("到")[1];
                     tomorrow.children[0].children[0].children[1].innerHTML = response1.data[0].tem1+"/"+response1.data[0].tem2+"°";
-
+                    tomorrow.children[0].children[1].children[0].innerHTML = str;
                     tomorrow.children[0].children[1].children[1].src="./logo/"+str+".svg";
+
                     str = response1.data[1].wea_day;
+                    str = str.indexOf("到")==-1?str:str.split("到")[1];
+                    tomorrow.children[2].children[1].children[0].innerHTML = str;
                     tomorrow.children[2].children[1].children[1].src = "./logo/"+str+".svg";
                     tomorrow.children[2].children[0].children[1].innerHTML = response1.data[1].tem1+"/"+response1.data[1].tem2+"°";
 
